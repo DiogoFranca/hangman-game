@@ -2,7 +2,7 @@ const underscore = document.querySelector('.underscore')
 const gallows = document.querySelector('.gallows')
 const keyboard = document.querySelector('.keyboard')
 
-const dataBase = ['Naruto Shippuden']
+const dataBase = ['Dragon Ball Z']
 const dataBaseImg = {
   error1: '../assets/head.png',
   error2: '../assets/head-body.png',
@@ -12,10 +12,7 @@ const dataBaseImg = {
   error6: '../assets/two-arms-legs.png'
 }
 
-let currentWord = 'Márcio Patrick'
-
-// Trocar underscore por espaço em nomes compostos. **
-// Quebrar o nome se for composto. **
+let currentWord = 'Naruto Shippuden'
 
 let arrayWord = transformaEmArray(currentWord);
 let underscoreWord = transformaEmUnderscore(arrayWord);
@@ -47,7 +44,6 @@ keyboard.addEventListener('click', e => {
   }
 
   if (isCompleted(underscoreWord)) {
-    console.log(underscoreWord);
     cleanGallows()
     contador = 0;
 
@@ -58,11 +54,12 @@ keyboard.addEventListener('click', e => {
       return;
     };
 
-    arrayWord = transformaEmArray(currentWord);
-    underscoreWord = transformaEmUnderscore(arrayWord);
-    underscore.innerText = mostraUnderscoreNaTela(underscoreWord);
+    setTimeout(() => {
+      arrayWord = transformaEmArray(currentWord);
+      underscoreWord = transformaEmUnderscore(arrayWord);
+      underscore.innerText = mostraUnderscoreNaTela(underscoreWord);
+    }, 2000);
 
-    
     nextWord++;
   }
 })
@@ -81,7 +78,20 @@ function transformaEmUnderscore(arrayWord) {
 }
 
 function mostraUnderscoreNaTela(underscoreWord) {
-  return underscoreWord.join('');
+  const arrayUnderscore = underscoreWord.map((valor, index, array) => {
+    if(index === 0) {
+      return valor.toUpperCase();
+    }
+
+    if(array[index - 1] === ' ') {
+      return valor.toUpperCase();
+    }
+
+    return valor;
+
+  });
+
+  return arrayUnderscore.join('');
 }
 
 function createImg() {
