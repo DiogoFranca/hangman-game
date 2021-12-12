@@ -1,0 +1,128 @@
+:root {
+  --font-odibee-sans: 'Odibee Sans', cursive;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-odibee-sans);
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to left, #b5e48c, #99d98c, #76c893);
+}
+
+.container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 30rem;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container .gallows {
+  position: relative;
+  bottom: 30rem;
+  right: 14rem;
+}
+
+.container .gallows .wooden-gallows {
+  position: absolute;
+  top: 1.5rem;
+  left: -1rem;
+  height: 19rem;
+}
+
+.container .underscore {
+  position: absolute;
+  bottom: 26rem;
+  left: 0;
+  right: 0;
+  font-size: 4rem;
+}
+
+.container .keyboard {
+  position: absolute;
+  bottom: 1rem;
+  height: 4rem;
+}
+
+.container .keyboard .align-tr {
+  position: relative;
+  left: 2.1rem;
+}
+
+.container .keyboard .empty-td {
+  display: none;
+}
+
+.container .keyboard td {
+  background-color: #f7ede2;
+  border: 0.2rem solid #8e9aaf;
+  border-radius: 1.5rem;
+  padding: 1.3rem;
+  font-size: 2rem;
+  transition: all 0.6s ease 0.2s;
+}
+
+.container .keyboard td:hover {
+  background-color: #bebbb9;
+  cursor: pointer;
+}
+
+.gallows .stick {
+  position: absolute;
+  margin-top: 0;
+  margin-left: 2.9rem;
+  height: 19rem;
+}
+
+.gallows #head {
+  left: -1rem;
+}
+
+.gallows #head-body {
+  left: -1.7rem;
+  top: 4rem;
+}
+
+.gallows #head-body-armright {
+  top: 4rem;
+  left: -2rem;
+}
+
+.gallows #two-arms {
+  top: 4rem;
+  left: -1.4rem;
+}
+
+.gallows #two-arms-one-leg {
+  top: 6rem;
+  left: -1.4rem;
+}
+
+.gallows #two-arms-legs {
+  top: 6rem;
+  left: -1.5rem;
+}

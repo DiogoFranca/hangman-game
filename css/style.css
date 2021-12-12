@@ -1,0 +1,70 @@
+:root {
+  --font-odibee-sans: 'Odibee Sans', cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  font-size: 62.5%;
+}
+
+html, body {
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-odibee-sans);
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(to left, #ffb703 , #fd9e02,#fb8500);
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .box-icon-rope {
+  margin-bottom: 4rem;
+}
+
+.container .btn {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  font-family: var(--font-odibee-sans);
+  font-size: 2rem;
+  box-shadow: 0.2rem 0.4rem 0 rgba(107, 100, 100, 0.83);
+  transition: all 1s ease 0.2s;
+}
+
+.container .btn:hover {
+  background-color: rgb(184, 178, 178);
+}
+
+.container .btn a {
+  text-decoration: none;
+}
+
+
+
+
+
