@@ -14,10 +14,16 @@ const dataBaseImg = {
 
 /*
   Acertou tudo: 
-  1 - Se acertou todas as palavras, quero que apareça uma mensagem de parabéns.
-  2 - Atualize a página para zerar o jogo.
+  1 - Se acertou todas as palavras, quero que apareça uma mensagem de parabéns **.
+  2 - Atualize a página para zerar o jogo **.
  */
 // 
+
+/*
+  Boneco completado:
+  1 - Apareça uma mensagem de gameover na tela.
+  2 - Reinicei o jogo.
+ */
 
 let currentWord = 'Maça'
 
@@ -42,8 +48,7 @@ keyboard.addEventListener('click', e => {
     showStick(contador)
 
     if(contador === 6) {
-      mostraGameOverNaTela();
-      location.reload();
+      message('Game Over');
     }
 
     if (contador > 1 && contador <= 6) {
@@ -59,7 +64,7 @@ keyboard.addEventListener('click', e => {
     currentWord = dataBase[nextWord];
 
     if(!currentWord) {
-      congratulations();
+      message('Congragulations, you finished the game!');
       return;
     };
 
@@ -139,9 +144,9 @@ function cleanGallows() {
   contador = 0
 }
 
-function congratulations() {
+function message(text) {
   setTimeout(() => {
-    alert('Congragulations, you finished the game!')
+    alert(`${text}`)
   }, 2000);
 
   setTimeout(() => {
@@ -149,3 +154,4 @@ function congratulations() {
   }, 3000);
 
 }
+// Congragulations, you finished the game!
