@@ -2,7 +2,7 @@ const underscore = document.querySelector('.underscore')
 const gallows = document.querySelector('.gallows')
 const keyboard = document.querySelector('.keyboard')
 
-const dataBase = ['Melancia', 'Uva']
+const dataBase = []
 const dataBaseImg = {
   error1: '../assets/head.png',
   error2: '../assets/head-body.png',
@@ -11,6 +11,13 @@ const dataBaseImg = {
   error5: '../assets/two-arms-one-leg.png',
   error6: '../assets/two-arms-legs.png'
 }
+
+/*
+  Acertou tudo: 
+  1 - Se acertou todas as palavras, quero que apareça uma mensagem de parabéns.
+  2 - Atualize a página para zerar o jogo.
+ */
+// 
 
 let currentWord = 'Maça'
 
@@ -48,12 +55,20 @@ keyboard.addEventListener('click', e => {
   if (isCompleted(underscoreWord)) {
     cleanGallows()
     contador = 0;
+
     currentWord = dataBase[nextWord];
 
+    if(!currentWord) {
+      congratulations();
+      return;
+    };
+
     arrayWord = transformaEmArray(currentWord);
+    console.log(arrayWord);
     underscoreWord = transformaEmUnderscore(arrayWord);
     underscore.innerText = mostraUnderscoreNaTela(underscoreWord);
 
+    
     nextWord++;
   }
 })
@@ -124,6 +139,13 @@ function cleanGallows() {
   contador = 0
 }
 
-function mostraGameOverNaTela() {
+function congratulations() {
+  setTimeout(() => {
+    alert('Congragulations, you finished the game!')
+  }, 2000);
 
-};
+  setTimeout(() => {
+    location.reload();
+  }, 3000);
+
+}
