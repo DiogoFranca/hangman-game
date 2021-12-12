@@ -2,7 +2,7 @@ const underscore = document.querySelector('.underscore')
 const gallows = document.querySelector('.gallows')
 const keyboard = document.querySelector('.keyboard')
 
-const dataBase = []
+const dataBase = ['Naruto Shippuden']
 const dataBaseImg = {
   error1: '../assets/head.png',
   error2: '../assets/head-body.png',
@@ -12,20 +12,10 @@ const dataBaseImg = {
   error6: '../assets/two-arms-legs.png'
 }
 
-/*
-  Acertou tudo: 
-  1 - Se acertou todas as palavras, quero que apareça uma mensagem de parabéns **.
-  2 - Atualize a página para zerar o jogo **.
- */
-// 
+let currentWord = 'Márcio Patrick'
 
-/*
-  Boneco completado:
-  1 - Apareça uma mensagem de gameover na tela.
-  2 - Reinicei o jogo.
- */
-
-let currentWord = 'Maça'
+// Trocar underscore por espaço em nomes compostos. **
+// Quebrar o nome se for composto. **
 
 let arrayWord = transformaEmArray(currentWord);
 let underscoreWord = transformaEmUnderscore(arrayWord);
@@ -41,8 +31,7 @@ keyboard.addEventListener('click', e => {
   if (index !== -1) {
     underscoreWord[index] = elementText
     delete arrayWord[index]
-    underscore.innerText = underscoreWord.join(' ')
-    console.log(underscoreWord)
+    underscore.innerText = mostraUnderscoreNaTela(underscoreWord);
   } else {
     contador++
     showStick(contador)
@@ -58,6 +47,7 @@ keyboard.addEventListener('click', e => {
   }
 
   if (isCompleted(underscoreWord)) {
+    console.log(underscoreWord);
     cleanGallows()
     contador = 0;
 
@@ -69,7 +59,6 @@ keyboard.addEventListener('click', e => {
     };
 
     arrayWord = transformaEmArray(currentWord);
-    console.log(arrayWord);
     underscoreWord = transformaEmUnderscore(arrayWord);
     underscore.innerText = mostraUnderscoreNaTela(underscoreWord);
 
@@ -84,12 +73,15 @@ function transformaEmArray(currentWord) {
 }
 
 function transformaEmUnderscore(arrayWord) {
-  let underscoreWord = arrayWord.map(() => '_')
-  return underscoreWord
+  const underscoreWord = arrayWord.map((valor) => {
+    if(valor !== ' ') return '_';
+    return ' ';
+  });
+  return underscoreWord;
 }
 
 function mostraUnderscoreNaTela(underscoreWord) {
-  return underscoreWord.join(' ');
+  return underscoreWord.join('');
 }
 
 function createImg() {
@@ -131,7 +123,8 @@ function showStick(contador) {
 }
 
 function isCompleted(array) {
-  return currentWord.toLocaleLowerCase() === array.join('')
+  console.log(array);
+  return currentWord.toLowerCase() === array.join('');
 }
 
 function cleanGallows() {
@@ -154,4 +147,3 @@ function message(text) {
   }, 3000);
 
 }
-// Congragulations, you finished the game!
