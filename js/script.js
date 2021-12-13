@@ -2,7 +2,8 @@ const underscore = document.querySelector('.underscore')
 const gallows = document.querySelector('.gallows')
 const keyboard = document.querySelector('.keyboard')
 
-const dataBase = ['Dragon Ball Z']
+const dataBase = ['Dragon', 'Goku', 'Super', 'Miranha']
+
 const dataBaseImg = {
   error1: '../assets/head.png',
   error2: '../assets/head-body.png',
@@ -12,7 +13,7 @@ const dataBaseImg = {
   error6: '../assets/two-arms-legs.png'
 }
 
-let currentWord = 'Naruto Shippuden'
+let currentWord = dataBase[0];
 
 let arrayWord = transformaEmArray(currentWord);
 let underscoreWord = transformaEmUnderscore(arrayWord);
@@ -45,6 +46,8 @@ keyboard.addEventListener('click', e => {
 
   if (isCompleted(underscoreWord)) {
     cleanGallows()
+    dataBase.shuffle();
+
     contador = 0;
 
     currentWord = dataBase[nextWord];
@@ -63,6 +66,15 @@ keyboard.addEventListener('click', e => {
     nextWord++;
   }
 })
+
+Array.prototype.shuffle = function() {
+  let index = dataBase.length;
+
+  while(index) {
+    const indexAleatorio = Math.floor(Math.random() * index--);
+    [dataBase[index], dataBase[indexAleatorio]] = [dataBase[indexAleatorio], dataBase[index]];
+  }
+}
 
 function transformaEmArray(currentWord) {
   let arrayWord = currentWord.toLowerCase().split('')
