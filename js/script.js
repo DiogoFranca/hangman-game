@@ -16,12 +16,12 @@ Array.prototype.shuffle = function() {
 dataBase.shuffle();
 
 const dataBaseImg = {
-  error1: '../assets/head.png',
-  error2: '../assets/head-body.png',
-  error3: '../assets/head-body-armrigth.png',
-  error4: '../assets/two-arms.png',
-  error5: '../assets/two-arms-one-leg.png',
-  error6: '../assets/two-arms-legs.png'
+  error1: 'assets/head.png',
+  error2: 'assets/head-body.png',
+  error3: 'assets/head-body-armrigth.png',
+  error4: 'assets/two-arms.png',
+  error5: 'assets/two-arms-one-leg.png',
+  error6: 'assets/two-arms-legs.png'
 }
 
 let currentWord = dataBase[0];
