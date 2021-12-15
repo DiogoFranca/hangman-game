@@ -160,6 +160,10 @@ main {
 }
 
 @media screen and (max-width: 425px) {
+  html {
+    font-size: 50%;
+  }
+
   .container .underscore {
     bottom: 28rem;
   }
