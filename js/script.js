@@ -2,7 +2,7 @@ const underscore = document.querySelector('.underscore')
 const gallows = document.querySelector('.gallows')
 const keyboard = document.querySelector('.keyboard')
 
-const dataBase = ['Dragon', 'Goku', 'Super', 'Miranha']
+const dataBase = ['Uva']
 
 Array.prototype.shuffle = function() {
   let index = dataBase.length;
@@ -159,13 +159,28 @@ function cleanGallows() {
   contador = 0
 }
 
+function createDiv() {
+  const div = document.createElement('div');
+  return div;
+}
+
+/*
+  Modal
+  - Criar um elemento caixa
+  - Escrever os dados dentro da caixa.
+  - Jogar na tela.
+*/
+
 function message(text) {
+  const div = createDiv();
+  div.setAttribute('id', 'modal');
+  div.innerText = text;
   setTimeout(() => {
-    alert(`${text}`)
+    document.body.appendChild(div);
   }, 2000);
 
-  setTimeout(() => {
-    location.reload();
-  }, 3000);
+  // setTimeout(() => {
+  //   location.reload();
+  // }, 50000);
 
 }
