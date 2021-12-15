@@ -2,18 +2,42 @@ const underscore = document.querySelector('.underscore')
 const gallows = document.querySelector('.gallows')
 const keyboard = document.querySelector('.keyboard')
 
-const dataBase = ['Uva']
+const dataBase = [
+  'Naruto',
+  'Bleach',
+  'Dororo',
+  'Kakegurui',
+  'One piece',
+  'Hunter X Hunter',
+  'The Promised Neverland',
+  'Dragon Ball Z',
+  'Fullmeta Alchemist',
+  'Pokemon',
+  'Tokyo Ghoul',
+  'Death Note',
+  'Boku No Hero Academia',
+  'Cavaleiros Do Zodiaco',
+  'Naruto Shippuden',
+  'Code Geass',
+  'Sword Art Online',
+  'Fairy Tail',
+  'Ataque dos Titas',
+  'One Punch Man'
+]
 
-Array.prototype.shuffle = function() {
-  let index = dataBase.length;
+Array.prototype.shuffle = function () {
+  let index = dataBase.length
 
-  while(index) {
-    const indexAleatorio = Math.floor(Math.random() * index--);
-    [dataBase[index], dataBase[indexAleatorio]] = [dataBase[indexAleatorio], dataBase[index]];
+  while (index) {
+    const indexAleatorio = Math.floor(Math.random() * index--)
+    ;[dataBase[index], dataBase[indexAleatorio]] = [
+      dataBase[indexAleatorio],
+      dataBase[index]
+    ]
   }
 }
 
-dataBase.shuffle();
+dataBase.shuffle()
 
 const dataBaseImg = {
   error1: 'assets/head.png',
@@ -24,11 +48,11 @@ const dataBaseImg = {
   error6: 'assets/two-arms-legs.png'
 }
 
-let currentWord = dataBase[0];
+let currentWord = dataBase[0]
 
-let arrayWord = transformaEmArray(currentWord);
-let underscoreWord = transformaEmUnderscore(arrayWord);
-underscore.innerText = mostraUnderscoreNaTela(underscoreWord);
+let arrayWord = transformaEmArray(currentWord)
+let underscoreWord = transformaEmUnderscore(arrayWord)
+underscore.innerText = mostraUnderscoreNaTela(underscoreWord)
 
 let contador = 0
 let nextWord = 0
@@ -40,13 +64,13 @@ keyboard.addEventListener('click', e => {
   if (index !== -1) {
     underscoreWord[index] = elementText
     delete arrayWord[index]
-    underscore.innerText = mostraUnderscoreNaTela(underscoreWord);
+    underscore.innerText = mostraUnderscoreNaTela(underscoreWord)
   } else {
     contador++
     showStick(contador)
 
-    if(contador === 6) {
-      message('Game Over');
+    if (contador === 6) {
+      message('Game Over')
     }
 
     if (contador > 1 && contador <= 6) {
@@ -57,53 +81,52 @@ keyboard.addEventListener('click', e => {
 
   if (isCompleted(underscoreWord)) {
     cleanGallows()
-    contador = 0;
+    contador = 0
 
-    currentWord = dataBase[nextWord];
+    currentWord = dataBase[nextWord]
 
-    if(!currentWord) {
-      message('Congragulations, you finished the game!');
-      return;
-    };
+    if (!currentWord) {
+      message('Congragulations, you finished the game!')
+      return
+    }
 
     setTimeout(() => {
-      arrayWord = transformaEmArray(currentWord);
-      underscoreWord = transformaEmUnderscore(arrayWord);
-      underscore.innerText = mostraUnderscoreNaTela(underscoreWord);
-    }, 2000);
+      arrayWord = transformaEmArray(currentWord)
+      underscoreWord = transformaEmUnderscore(arrayWord)
+      underscore.innerText = mostraUnderscoreNaTela(underscoreWord)
+    }, 2000)
 
-    nextWord++;
+    nextWord++
   }
 })
 
 function transformaEmArray(currentWord) {
   let arrayWord = currentWord.toLowerCase().split('')
-  return arrayWord;
+  return arrayWord
 }
 
 function transformaEmUnderscore(arrayWord) {
-  const underscoreWord = arrayWord.map((valor) => {
-    if(valor !== ' ') return '_';
-    return ' ';
-  });
-  return underscoreWord;
+  const underscoreWord = arrayWord.map(valor => {
+    if (valor !== ' ') return '_'
+    return ' '
+  })
+  return underscoreWord
 }
 
 function mostraUnderscoreNaTela(underscoreWord) {
   const arrayUnderscore = underscoreWord.map((valor, index, array) => {
-    if(index === 0) {
-      return valor.toUpperCase();
+    if (index === 0) {
+      return valor.toUpperCase()
     }
 
-    if(array[index - 1] === ' ') {
-      return valor.toUpperCase();
+    if (array[index - 1] === ' ') {
+      return valor.toUpperCase()
     }
 
-    return valor;
+    return valor
+  })
 
-  });
-
-  return arrayUnderscore.join('');
+  return arrayUnderscore.join('')
 }
 
 function createImg() {
@@ -145,8 +168,8 @@ function showStick(contador) {
 }
 
 function isCompleted(array) {
-  console.log(array);
-  return currentWord.toLowerCase() === array.join('');
+  console.log(array)
+  return currentWord.toLowerCase() === array.join('')
 }
 
 function cleanGallows() {
@@ -160,8 +183,8 @@ function cleanGallows() {
 }
 
 function createDiv() {
-  const div = document.createElement('div');
-  return div;
+  const div = document.createElement('div')
+  return div
 }
 
 /*
@@ -172,15 +195,14 @@ function createDiv() {
 */
 
 function message(text) {
-  const div = createDiv();
-  div.setAttribute('id', 'modal');
-  div.innerText = text;
+  const div = createDiv()
+  div.setAttribute('id', 'modal')
+  div.innerText = text
   setTimeout(() => {
-    document.body.appendChild(div);
-  }, 2000);
+    document.body.appendChild(div)
+  }, 2000)
 
-  // setTimeout(() => {
-  //   location.reload();
-  // }, 50000);
-
+  setTimeout(() => {
+    location.reload()
+  }, 50000)
 }
