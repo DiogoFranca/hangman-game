@@ -198,11 +198,12 @@ function message(text) {
   const div = createDiv()
   div.setAttribute('id', 'modal')
   div.innerText = text
+
   setTimeout(() => {
     document.body.appendChild(div)
   }, 2000)
 
   setTimeout(() => {
     location.reload()
-  }, 50000)
+  }, 5000)
 }
