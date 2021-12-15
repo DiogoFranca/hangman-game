@@ -126,3 +126,24 @@ main {
   top: 6rem;
   left: -1.5rem;
 }
+
+#modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: absolute;
+
+  height: 20rem;
+  max-width: 30rem;
+  width: 90%;
+
+  z-index: 999;
+
+  font-size: 3rem;
+  text-align: center;
+  border-radius: 2rem;
+  border: 0.5rem solid #e85d04;
+  background: linear-gradient(to left, #f48c06, #faa307);
+  color: white;
+}
