@@ -1,1 +1,1 @@
-<p align="center">Proejeto apenas para fins de práticar meus conhecimentos a cerca da linguagem JavaSript, Css e Html</p>
+<p align="center">Proejeto apenas para fins de práticar meus conhecimentos a cerca da linguagem JavaScript, Css e Html</p>
