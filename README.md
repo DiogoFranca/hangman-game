@@ -1,1 +1,1 @@
-<p align="center">Proejeto apenas para fins de práticar meus conhecimentos a cerca da linguagem JavaScript, Css e Html</p>
+<h4 align="center"> 🚧 &nbsp; Projeto Note Taker App &nbsp; 🔨 &nbsp; Em construção... &nbsp; 🚧 </h4>
