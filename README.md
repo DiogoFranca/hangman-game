@@ -1,1 +1,1 @@
-<h4 align="center"> 🚧 &nbsp; Projeto Note Taker App &nbsp; 🔨 &nbsp; Em construção... &nbsp; 🚧 </h4>
+<h4 align="center"> 🚧 &nbsp; Projeto Hangman Game &nbsp; 🔨 &nbsp; Em construção... &nbsp; 🚧 </h4>
